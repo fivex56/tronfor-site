@@ -1,0 +1,1029 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<meta name="robots" content="noindex,follow"/>
+<title>tronfor.me</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3Z3MB3Q3RJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+gtag("js",new Date());gtag("config","G-3Z3MB3Q3RJ",{client_storage:"none",anonymize_ip:true});</script>
+<style>:root{
+  color-scheme:dark;
+  /* поверхности */
+  --bg:#070810;--bg-raised:#0b0d16;--surface:#11131d;--surface-2:#171a25;--surface-3:#1e2230;
+  --line:rgba(255,255,255,.075);--line-2:rgba(255,255,255,.13);--line-3:rgba(255,255,255,.22);
+  --text:#eef1f8;--text-2:#a4aec3;--text-3:#7e889e;
+  /* бренд: те же две точки, что в градиенте знака */
+  --brand-1:#6f9bff;--brand-2:#9a6cff;
+  /* Заливка сплошных кнопок и любых плашек с текстом поверх градиента.
+     На тёмной теме плашка светлая и буква на ней тёмная, на светлой наоборот:
+     белым по #6f9bff вышло бы 2.7:1, а это не читается. */
+  --btn-1:#6f9bff;--btn-2:#9a6cff;
+  --accent:#6f9bff;--accent-2:#9a6cff;--accent-ink:#05070e;
+  --accent-soft:rgba(111,155,255,.14);--accent-line:rgba(111,155,255,.36);
+  /* смысловые */
+  --good:#3ed99b;--good-soft:rgba(62,217,155,.13);--good-line:rgba(62,217,155,.34);
+  --warn:#f0b352;--warn-soft:rgba(240,179,82,.13);--warn-line:rgba(240,179,82,.34);
+  --bad:#ff6f68;--bad-soft:rgba(255,111,104,.13);--bad-line:rgba(255,111,104,.34);
+  --energy:#ffc65a;--energy-soft:rgba(255,198,90,.14);--energy-line:rgba(255,198,90,.38);
+  /* графика иллюстраций: насыщенные, не для текста */
+  --gfx-burn:#ff7a6e;--gfx-burn-2:#ff9d3d;--gfx-rent:#7ba2ff;--gfx-energy:#ffc65a;
+  --gfx-dim:rgba(255,255,255,.13);
+  /* декор */
+  --header-bg:rgba(7,8,16,.72);
+  --aura-1:rgba(111,155,255,.34);--aura-2:rgba(154,108,255,.26);
+  --grid-line:rgba(255,255,255,.055);
+  --glow:0 0 0 1px rgba(111,155,255,.22),0 24px 60px -28px rgba(111,155,255,.55);
+  --shadow-edge:rgba(0,0,0,.5);
+  /* радиусы, тени, ритм */
+  --r-xs:8px;--r-sm:10px;--r:14px;--r-lg:20px;--r-xl:26px;--r-pill:999px;
+  --sh-1:0 1px 2px rgba(0,0,0,.4);--sh-2:0 8px 28px -14px rgba(0,0,0,.75);
+  --sh-3:0 24px 60px -28px rgba(0,0,0,.85);
+  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--s7:48px;--s8:64px;--s9:88px;
+  --pad:20px;--maxw:1140px;--measure:68ch;
+  --ease:cubic-bezier(.2,.7,.3,1);--dur:170ms;--dur-2:280ms;
+  /* типографика */
+  --fs-1:clamp(30px,6vw,50px);--fs-2:clamp(23px,3.9vw,33px);--fs-3:clamp(18px,2.4vw,21px);
+  --fs-lead:clamp(16.5px,2.2vw,19.5px);
+  --font:'Inter','Golos Text','SF Pro Display',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+}
+:root[data-theme="light"]{
+  color-scheme:light;
+  --bg:#f2f4fa;--bg-raised:#ffffff;--surface:#ffffff;--surface-2:#f0f3f9;--surface-3:#e5eaf3;
+  --line:rgba(16,22,38,.09);--line-2:rgba(16,22,38,.15);--line-3:rgba(16,22,38,.26);
+  --text:#0e1421;--text-2:#4f5970;--text-3:#5c6579;
+  --brand-1:#5b83f5;--brand-2:#8d5cf0;
+  --btn-1:#2f57d4;--btn-2:#6d3fd4;
+  --accent:#2f57d4;--accent-2:#6d3fd4;--accent-ink:#ffffff;
+  --accent-soft:rgba(47,87,212,.085);--accent-line:rgba(47,87,212,.28);
+  --good:#0b7a55;--good-soft:rgba(11,122,85,.09);--good-line:rgba(11,122,85,.3);
+  --warn:#8a5a0d;--warn-soft:rgba(138,90,13,.09);--warn-line:rgba(138,90,13,.3);
+  --bad:#c8403b;--bad-soft:rgba(200,64,59,.09);--bad-line:rgba(200,64,59,.3);
+  --energy:#8f5e08;--energy-soft:rgba(143,94,8,.1);--energy-line:rgba(143,94,8,.32);
+  --gfx-burn:#e2554a;--gfx-burn-2:#e8862a;--gfx-rent:#4a72e8;--gfx-energy:#e2960f;
+  --gfx-dim:rgba(16,22,38,.14);
+  --header-bg:rgba(242,244,250,.78);
+  --aura-1:rgba(91,131,245,.24);--aura-2:rgba(141,92,240,.18);
+  --grid-line:rgba(16,22,38,.05);
+  --glow:0 0 0 1px rgba(47,87,212,.16),0 24px 54px -30px rgba(47,87,212,.5);
+  --shadow-edge:rgba(16,22,38,.24);
+  --sh-1:0 1px 2px rgba(16,22,38,.07);--sh-2:0 8px 24px -14px rgba(16,22,38,.25);
+  --sh-3:0 24px 54px -30px rgba(16,22,38,.3);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;padding:0;height:100%}
+body{
+  background:var(--bg);color:var(--text);
+  font:400 15.5px/1.55 var(--font);
+  font-variant-numeric:tabular-nums;
+  -webkit-font-smoothing:antialiased;
+  -webkit-tap-highlight-color:transparent;
+  overflow-x:hidden;
+}
+.wrap{max-width:520px;margin:0 auto;padding:14px 16px calc(28px + env(safe-area-inset-bottom))}
+.wrap.has-own-cta{padding-bottom:104px}
+
+/* ---------- шапка ---------- */
+.top{display:flex;align-items:center;gap:9px;margin-bottom:14px}
+.top .mark{width:26px;height:26px;flex:none}
+.tf-g1{stop-color:var(--brand-1)}.tf-g2{stop-color:var(--brand-2)}
+.top b{font-size:15px;font-weight:700;letter-spacing:-.02em}
+.top b em{font-style:normal;color:var(--text-3);font-weight:600}
+.chip{margin-left:auto;font-size:12px;font-weight:600;letter-spacing:.01em;
+  padding:3px 9px;border-radius:var(--r-pill);
+  color:var(--energy);background:var(--energy-soft);border:1px solid var(--energy-line)}
+.lang{margin-left:8px;font:600 12px/1 var(--font);color:var(--text-3);background:none;
+  border:1px solid var(--line-2);border-radius:var(--r-pill);padding:5px 9px;cursor:pointer}
+.lang:active{background:var(--surface-2)}
+
+/* ---------- сравнение: сжечь или взять ---------- */
+.hero{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:15px 15px 13px;box-shadow:var(--sh-2)}
+.hero h1{margin:0 0 12px;font-size:17px;font-weight:750;letter-spacing:-.025em;line-height:1.25}
+.bars{display:grid;gap:9px}
+.bar{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:8px}
+.bar .lab{font-size:12.5px;color:var(--text-2);line-height:1.3}
+.bar .num{font-size:15px;font-weight:750;letter-spacing:-.02em;white-space:nowrap}
+.bar .track{grid-column:1/-1;height:8px;border-radius:var(--r-pill);background:var(--surface-3);
+  overflow:hidden}
+.bar .fill{display:block;height:100%;border-radius:var(--r-pill);width:0;
+  transition:width 620ms var(--ease)}
+.bar.burn .num{color:var(--bad)}
+.bar.burn .fill{background:linear-gradient(90deg,var(--gfx-burn),var(--gfx-burn-2))}
+.bar.ours .num{color:var(--accent)}
+.bar.ours .fill{background:linear-gradient(90deg,var(--brand-1),var(--brand-2))}
+.save{margin-top:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  font-size:13px;color:var(--good)}
+.save b{font-size:14.5px;font-weight:750}
+.save .pct{font:700 12px/1 var(--font);padding:4px 8px;border-radius:var(--r-pill);
+  background:var(--good-soft);border:1px solid var(--good-line)}
+
+/* Шаг оплаты: вместо полос одна строка — что именно покупается. */
+.recap{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;
+  padding:12px 14px;border-radius:var(--r);
+  background:var(--surface);border:1px solid var(--line)}
+.recap b{font-size:16px;font-weight:750;letter-spacing:-.02em}
+.recap .pr{font-size:15px;font-weight:750;color:var(--accent);margin-left:auto}
+.recap .tm{font-size:12px;color:var(--text-3)}
+
+/* ---------- секции ---------- */
+h2{margin:20px 0 9px;font-size:11.5px;font-weight:700;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--text-3)}
+
+/* ---------- объём ---------- */
+.vols{display:grid;gap:9px}
+.vol{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;
+  padding:13px 14px;border-radius:var(--r);cursor:pointer;
+  background:var(--surface);border:1px solid var(--line-2);
+  transition:border-color var(--dur) var(--ease),background var(--dur) var(--ease)}
+.vol:active{transform:translateY(1px)}
+.vol .e{font-size:16.5px;font-weight:750;letter-spacing:-.02em;display:block}
+.vol .s{font-size:12px;color:var(--text-3);display:block;margin-top:1px;line-height:1.35}
+.vol .p{font-size:15.5px;font-weight:750;letter-spacing:-.02em;white-space:nowrap;
+  color:var(--text-2)}
+.vol[aria-checked="true"]{border-color:var(--accent-line);background:var(--accent-soft);
+  box-shadow:var(--glow)}
+.vol[aria-checked="true"] .p{color:var(--accent)}
+
+/* ---------- валюта ---------- */
+.curs{display:flex;gap:8px;flex-wrap:wrap}
+.cur{flex:1 1 auto;min-width:88px;text-align:center;padding:10px 8px;cursor:pointer;
+  font-size:13.5px;font-weight:650;color:var(--text-2);
+  background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-sm);
+  transition:border-color var(--dur) var(--ease),color var(--dur) var(--ease)}
+.cur[aria-checked="true"]{color:var(--text);border-color:var(--accent-line);
+  background:var(--accent-soft)}
+.cur.stars{flex-basis:100%}
+
+/* ---------- адрес получателя ---------- */
+.addr{display:block;width:100%;padding:12px 13px;border-radius:var(--r-sm);
+  font:500 14px/1.4 var(--mono);letter-spacing:.01em;
+  color:var(--text);background:var(--surface);border:1px solid var(--line-2);
+  transition:border-color var(--dur) var(--ease)}
+.addr:focus{outline:none;border-color:var(--accent-line);box-shadow:var(--glow)}
+.addr::placeholder{font-family:var(--font);letter-spacing:0;color:var(--text-3)}
+.addr:disabled{opacity:.6}
+.amsg{margin:7px 2px 0;font-size:12.5px;line-height:1.45;color:var(--text-3)}
+.amsg.ok{color:var(--good)}
+.amsg.bad{color:var(--bad)}
+
+/* ---------- карточка оплаты ---------- */
+.pay{background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r);
+  overflow:hidden}
+.prow{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;
+  padding:11px 13px;border-top:1px solid var(--line)}
+.prow:first-child{border-top:0}
+.prow .k{font-size:12.5px;color:var(--text-3);line-height:1.35}
+.prow .v{font-size:14.5px;font-weight:700;letter-spacing:-.01em;text-align:right;
+  overflow-wrap:anywhere}
+.prow.dim .v{font-weight:600;color:var(--text-2);font-size:13px}
+.prow button{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:10px;
+  width:100%;text-align:left;background:none;border:0;padding:0;cursor:pointer;color:inherit;
+  font:inherit}
+/* Адрес в 34 знака не делит строку ни с подписью, ни с кнопкой: ему своя. */
+.prow.wide button{grid-template-columns:1fr auto;
+  grid-template-areas:"k cp" "v v" "sub sub";align-items:start}
+.prow.wide .k{grid-area:k;align-self:center}
+.prow.wide .cp{grid-area:cp}
+.prow.wide .v{grid-area:v;text-align:left;margin-top:7px;
+  font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:0;line-height:1.45}
+.prow.wide .sub{grid-area:sub;margin-top:6px;font-size:11.5px;line-height:1.4;color:var(--warn)}
+.prow .cp{font-size:11.5px;font-weight:650;letter-spacing:.01em;
+  color:var(--accent);white-space:nowrap;padding:5px 9px;border-radius:var(--r-pill);
+  background:var(--accent-soft);border:1px solid var(--accent-line)}
+.prow.copied .cp{color:var(--good);background:var(--good-soft);border-color:var(--good-line)}
+.prow.memo{background:var(--warn-soft)}
+.pnote{margin:11px 2px 0;font-size:12.5px;line-height:1.5;color:var(--text-3)}
+.pwarn{margin:11px 0 0;padding:11px 12px;border-radius:var(--r-sm);font-size:12.5px;
+  line-height:1.5;color:var(--text-2);
+  background:var(--warn-soft);border:1px solid var(--warn-line)}
+.pbot{display:block;width:100%;margin-top:12px;padding:13px 14px;cursor:pointer;
+  text-align:center;font:650 14px/1.2 var(--font);
+  color:var(--text);background:var(--surface-2);border:1px solid var(--line-2);
+  border-radius:var(--r-sm)}
+.pbot:active{transform:translateY(1px)}
+.back{display:block;width:100%;margin-top:10px;padding:11px;cursor:pointer;text-align:center;
+  font:600 13px/1.2 var(--font);color:var(--text-3);background:none;border:0}
+
+/* ---------- строчка рынка ---------- */
+.market{margin-top:16px;font-size:12.5px;line-height:1.5;color:var(--text-3)}
+.market a{color:var(--text-2);text-decoration:underline;text-underline-offset:2px}
+.market b{color:var(--text-2);font-weight:650}
+
+/* ---------- нижняя строка ---------- */
+.foot{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);
+  font-size:11.5px;line-height:1.55;color:var(--text-3)}
+.foot .when{opacity:.75}
+
+/* ---------- своя кнопка: только если нативной нет ---------- */
+.own{position:fixed;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  background:linear-gradient(180deg,transparent,var(--bg) 42%);display:none}
+.own button{width:100%;max-width:488px;margin:0 auto;display:block;cursor:pointer;
+  padding:14px 16px;border:0;border-radius:var(--r);
+  font:750 15px/1.2 var(--font);letter-spacing:-.01em;
+  color:var(--accent-ink);background:linear-gradient(135deg,var(--btn-1),var(--btn-2));
+  box-shadow:var(--sh-2)}
+.own button:active{transform:translateY(1px)}
+
+/* ---------- ошибка ---------- */
+.err{margin-top:18px;padding:14px;border-radius:var(--r);
+  background:var(--warn-soft);border:1px solid var(--warn-line);
+  font-size:13.5px;line-height:1.5;color:var(--text)}
+.err a{color:var(--accent);font-weight:650}
+.skel{color:var(--text-3)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="tfg-app" x1="0" y1="0" x2="1" y2="1"><stop class="tf-g1" offset="0"/><stop class="tf-g2" offset="1"/></linearGradient><mask id="tfm-app"><rect width="32" height="32" fill="#fff"/><path d="M21.4 -3 9.6 16.2h5.8L11 35h3.2L24.2 14.8h-6L25 -3z" fill="#000" stroke="#000" stroke-width="2.4" stroke-linejoin="round"/></mask></defs><rect width="32" height="32" rx="9" fill="url(#tfg-app)" mask="url(#tfm-app)"/></svg>
+    <b>tronfor<em>.me</em></b>
+    <span class="chip" id="term">1 час</span>
+    <button class="lang" id="lang" type="button">EN</button>
+  </div>
+
+  <p class="skel" id="load">…</p>
+
+  <div id="card" hidden>
+    <div class="recap" id="recap" hidden>
+      <b id="rcVol"></b><span class="tm" id="rcTerm"></span>
+      <span class="pr" id="rcPrice"></span>
+    </div>
+
+    <section class="hero" id="hero">
+      <h1 id="h1"></h1>
+      <div class="bars">
+        <div class="bar burn">
+          <span class="lab" id="burnLab"></span><span class="num" id="burnNum"></span>
+          <span class="track"><i class="fill" id="burnFill"></i></span>
+        </div>
+        <div class="bar ours">
+          <span class="lab" id="oursLab"></span><span class="num" id="oursNum"></span>
+          <span class="track"><i class="fill" id="oursFill"></i></span>
+        </div>
+      </div>
+      <p class="save"><span id="saveLab"></span> <b id="saveNum"></b>
+         <span class="pct" id="savePct"></span></p>
+    </section>
+
+    <div id="step1">
+      <h2 id="volT"></h2>
+      <div class="vols" id="vols" role="radiogroup"></div>
+      <h2 id="curT"></h2>
+      <div class="curs" id="curs" role="radiogroup"></div>
+    </div>
+
+    <div id="step2" hidden>
+      <h2 id="addrT"></h2>
+      <input class="addr" id="addr" type="text" inputmode="text" autocomplete="off"
+             autocapitalize="off" autocorrect="off" spellcheck="false" maxlength="40"/>
+      <p class="amsg" id="amsg"></p>
+      <h2 id="payT"></h2>
+      <div id="payout"></div>
+      <button class="back" id="back" type="button" hidden></button>
+    </div>
+
+    <p class="market" id="market" hidden></p>
+
+    <p class="foot"><span id="note"></span><br>
+       <span class="when" id="when"></span></p>
+  </div>
+
+  <div class="err" id="err" hidden></div>
+</div>
+
+<div class="own" id="own"><button type="button">…</button></div>
+
+<script>
+var BOT = "https://t.me/tronfor_me_bot";
+var BOARD = "https://energypriceboard.com/";
+var SITE = "https://tronfor.me";
+
+(function(){
+'use strict';
+var tg = window.Telegram && window.Telegram.WebApp ? window.Telegram.WebApp : null;
+
+/* Объект WebApp существует в любом браузере: скрипт telegram-web-app.js
+   создаёт его безусловно, и MainButton в нём тоже есть — он просто ничего не
+   рисует, когда Telegram вокруг нет. Отличает одно от другого `platform`: вне
+   Telegram он 'unknown'. Без этой проверки страница, открытая в браузере,
+   осталась бы вообще без кнопки «купить». */
+var inTelegram = !!(tg && tg.platform && tg.platform !== 'unknown');
+
+/* --- язык ---------------------------------------------------------------
+   Берём язык телефона, а не гадаем: Telegram кладёт его в initDataUnsafe.
+   Переключатель в шапке остаётся на случай, когда язык телефона и язык
+   покупателя — разные вещи.
+
+   Слова про оплату — те же, что на сайте (theme.py). Одинаковое объясняем
+   одинаково, иначе одна из двух страниц однажды соврёт. */
+var L = {
+  ru: {
+    term: '1 час',
+    h1: 'Перевод USDT сжигает TRX. Аренда энергии — нет.',
+    burn: 'Обычный перевод сожжёт',
+    ours: 'Через нас',
+    save: 'экономия',
+    volT: 'Сколько энергии',
+    curT: 'Чем платить',
+    addrT: 'Куда отправить энергию',
+    payT: 'Оплата',
+    sub: {'65000': 'На кошельке получателя есть USDT',
+          '131000': 'На кошельке получателя нет USDT'},
+    subAny: 'Энергия на один перевод',
+    market: 'Средняя цена на доске — <b>{m} TRX</b>. Дороже нас сейчас — <b>{n}</b>.',
+    plat: ['площадка', 'площадки', 'площадок'],
+    board: 'energypriceboard.com',
+    cta: 'ПОЛУЧИТЬ ⚡ {e} · {a}',
+    ctaBot: 'Оплатить в боте',
+    back: '← Изменить выбор',
+    note: 'Приватный ключ не спрашиваем · без регистрации и KYC',
+    when: 'цены обновлены в {t}',
+    load: 'Загружаю цены…',
+    errH: 'Цены сейчас не отвечают.',
+    errB: 'В боте они всегда живые — <a id="errlink" href="{bot}">открыть бота</a>.',
+    stars: '⭐ Telegram Stars',
+    /* дословно из theme.py */
+    aPlace: 'Кошелёк, с которого платите',
+    aHint: 'Можно оставить пустым — тогда энергия придёт на кошелёк, с которого пришла оплата.',
+    aPrefix: 'Адрес TRON начинается с T.',
+    aChar: 'Знака «%s» в адресе TRON не бывает.',
+    aLen: 'В адресе TRON 34 символа, здесь %s.',
+    aSum: 'Адрес не сходится по контрольной сумме — где-то опечатка.',
+    aTyping: 'Дописывайте адрес…',
+    aOk: 'Адрес в порядке. Энергия уйдёт на него.',
+    coSend: 'Отправьте', coTo: 'На наш адрес', coGet: 'Получите',
+    coEnergy: 'энергии на час', coCopy: 'копировать', coCopied: 'скопировано',
+    bMemo: 'Memo перевода',
+    bMemoSub: 'вставьте это в поле memo — иначе энергия уйдёт отправителю',
+    bDest: 'Энергия придёт на', bDestSelf: 'кошелёк, с которого платите',
+    bMemoWarn: 'Платите из кошелька, который умеет отправлять memo. Без memo энергия придёт на кошелёк, с которого пришла оплата.',
+    coStarsOnly: 'Telegram Stars принимает сам телеграм, поэтому оплата ими идёт в боте. Там же видно, сколько их нужно на сейчас.',
+    coUsdtBot: 'Энергию просили на другой адрес, а перевод USDT не несёт memo, по которому мы бы его прочитали. Такой заказ делается в боте — там адрес спрашивают отдельно.',
+    coBotOnly: 'Оплата с сайта сейчас недоступна.',
+    bNoMemo: 'Другой адрес получателя сейчас можно задать только в боте.',
+    coWatch: 'Перевод увидим сами, обычно за минуту. Ничего нажимать не нужно.'
+  },
+  en: {
+    term: '1 hour',
+    h1: 'A USDT transfer burns TRX. Renting energy does not.',
+    burn: 'A plain transfer burns',
+    ours: 'With us',
+    save: 'you save',
+    volT: 'How much energy',
+    curT: 'Pay with',
+    addrT: 'Where the energy goes',
+    payT: 'Payment',
+    sub: {'65000': 'The receiving wallet already holds USDT',
+          '131000': 'The receiving wallet holds no USDT'},
+    subAny: 'Energy for one transfer',
+    market: 'Median price on the board — <b>{m} TRX</b>. Dearer than us right now — <b>{n}</b>.',
+    plat: ['platform', 'platforms', 'platforms'],
+    board: 'energypriceboard.com',
+    cta: 'GET ⚡ {e} · {a}',
+    ctaBot: 'Pay in the bot',
+    back: '← Change the choice',
+    note: 'We never ask for your private key · no signup, no KYC',
+    when: 'prices updated at {t}',
+    load: 'Loading prices…',
+    errH: 'Prices are not answering right now.',
+    errB: 'They are always live in the bot — <a id="errlink" href="{bot}">open the bot</a>.',
+    stars: '⭐ Telegram Stars',
+    aPlace: 'The wallet you pay from',
+    aHint: 'You can leave this empty — then the energy lands on the wallet the payment came from.',
+    aPrefix: 'A TRON address starts with T.',
+    aChar: 'A TRON address never contains "%s".',
+    aLen: 'A TRON address is 34 characters; this one is %s.',
+    aSum: 'This address fails its checksum — there is a typo somewhere.',
+    aTyping: 'Keep typing the address…',
+    aOk: 'Address checks out. The energy goes here.',
+    coSend: 'Send', coTo: 'To our address', coGet: 'You get',
+    coEnergy: 'energy for one hour', coCopy: 'copy', coCopied: 'copied',
+    bMemo: 'Memo of the transfer',
+    bMemoSub: 'paste this into the memo field, or the energy goes back to the sender',
+    bDest: 'Energy lands on', bDestSelf: 'the wallet you pay from',
+    bMemoWarn: 'Pay from a wallet that can send a memo. With no memo the energy lands on the wallet the payment came from.',
+    coStarsOnly: 'Telegram Stars belong to Telegram, so paying in them happens in the bot — which also shows how many are needed right now.',
+    coUsdtBot: 'The energy is going to a different address, and a USDT transfer carries no memo for us to read it out of. That order is made in the bot, which asks for the address separately.',
+    coBotOnly: 'Paying from the site is unavailable right now.',
+    bNoMemo: 'A different destination address can only be set in the bot right now.',
+    coWatch: 'We watch for the transfer ourselves, usually within a minute. Nothing to press.'
+  }
+};
+
+var langCode = '';
+try { langCode = (tg && tg.initDataUnsafe && tg.initDataUnsafe.user &&
+                  tg.initDataUnsafe.user.language_code) || navigator.language || ''; }
+catch(e){ langCode = 'en'; }
+var lang = /^ru|^be|^uk|^kk|^uz|^ky|^tg|^hy|^az/.test(String(langCode).toLowerCase()) ? 'ru' : 'en';
+try { var saved = localStorage.getItem('tf-app-lang'); if (saved === 'ru' || saved === 'en') lang = saved; }
+catch(e){}
+function T(){ return L[lang]; }
+
+/* --- тема ---------------------------------------------------------------
+   Из Telegram берём только светло/темно. Цвета — наши: витрина магазина
+   должна быть узнаваемо магазинной, а не перекрашенной под чужой клиент. */
+function applyTheme(){
+  var light = false;
+  if (tg && tg.colorScheme) light = tg.colorScheme === 'light';
+  else if (window.matchMedia) light = window.matchMedia('(prefers-color-scheme: light)').matches;
+  document.documentElement.setAttribute('data-theme', light ? 'light' : 'dark');
+  var bg = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim();
+  try { if (tg && tg.setBackgroundColor) tg.setBackgroundColor(bg); } catch(e){}
+  try { if (tg && tg.setHeaderColor) tg.setHeaderColor(bg); } catch(e){}
+  return light;
+}
+
+/* --- состояние ----------------------------------------------------------- */
+var price = null;          // разобранный price.json
+var vol = null;            // выбранный объём, число
+var cur = 'USDT';          // выбранная валюта: USDT | TRX | XTR
+var step = 1;              // 1 — выбор, 2 — оплата
+var addr = '';             // адрес получателя, как его напечатали
+var addrState = 'empty';   // empty | typing | bad | checking | ok
+var addrMsg = '';
+var seq = 0;               // номер последней проверки адреса
+var SUN = 1e-6, burnSun = 100;
+
+/* Одно место, через которое уходят все события. Счётчика может не быть
+   (блокировщик, локальная сборка) — тогда молчим и ничего не ломаем. */
+var evOnce = {};
+function ev(name, params){
+  try { if (typeof window.gtag === 'function') window.gtag('event', name, params || {}); }
+  catch(e){}
+}
+
+function $(id){ return document.getElementById(id); }
+function num(v){ return typeof v === 'number' && isFinite(v); }
+function fmt(v, d){ return (Math.round(v * Math.pow(10, d)) / Math.pow(10, d)).toFixed(d); }
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
+  return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]; }); }
+
+/* Объём короткой формой — ровно как на кнопке бота, чтобы человек узнал
+   то же самое место, куда он сейчас вернётся. */
+function eShort(n){ return n >= 1000 ? Math.round(n / 1000) + (lang === 'ru' ? 'к' : 'k') : String(n); }
+function eLong(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }
+
+function plural(n, forms){
+  if (lang !== 'ru') return forms[n === 1 ? 0 : 1];
+  var a = n % 100, b = n % 10;
+  if (a > 4 && a < 20) return forms[2];
+  if (b === 1) return forms[0];
+  if (b > 1 && b < 5) return forms[1];
+  return forms[2];
+}
+
+function products(){
+  var p = price && price.products;
+  if (!p || !p.length) return [];
+  return p.filter(function(it){ return it && num(Number(it.price_trx)) && Number(it.price_trx) > 0; })
+          .map(function(it){
+            return {energy: Number(it.energy), trx: Number(it.price_trx),
+                    usdt: num(Number(it.price_usdt)) ? Number(it.price_usdt) : null,
+                    stars: num(Number(it.price_stars)) ? Number(it.price_stars) : null};
+          });
+}
+function item(energy){
+  var all = products();
+  for (var i = 0; i < all.length; i++) if (all[i].energy === energy) return all[i];
+  return all[0] || null;
+}
+function extra(energy){
+  var arr = (price && price.items) || [];
+  for (var i = 0; i < arr.length; i++) if (Number(arr[i].energy) === energy) return arr[i];
+  return null;
+}
+function burn(energy){ return energy * burnSun * SUN; }
+function payRules(){ return (price && price.pay) || null; }
+
+/* Цена выбранного объёма в выбранной валюте, как её увидит человек.
+   Валюта, которой у этого объёма нет, не выдумывается: показываем TRX —
+   она верна всегда. Та же логика, что в боте (_amount_in). */
+function amount(it, token){
+  if (!it) return null;
+  if (token === 'USDT') return it.usdt ? fmt(it.usdt, 2) + ' USDT' : null;
+  if (token === 'XTR')  return it.stars ? it.stars + ' Stars' : null;
+  return fmt(it.trx, 2) + ' TRX';
+}
+function amountOr(it, token){ return amount(it, token) || amount(it, 'TRX'); }
+
+/* --- адрес получателя ----------------------------------------------------
+   Ту же проверку делает бот перед выдачей (tronfor/tron.py), и она здесь не
+   для красоты: если в адресе из memo опечатка, бот его отбрасывает и шлёт
+   энергию отправителю платежа. Человек при этом уверен, что купил на другой
+   кошелёк. Четыре байта контрольной суммы ловят такую опечатку до перевода. */
+var B58 = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
+
+function b58(s){
+  var bytes = [0], i, j, carry;
+  for (i = 0; i < s.length; i++){
+    var v = B58.indexOf(s.charAt(i));
+    if (v < 0) return null;
+    for (j = 0; j < bytes.length; j++) bytes[j] *= 58;
+    bytes[0] += v;
+    carry = 0;
+    for (j = 0; j < bytes.length; j++){
+      bytes[j] += carry; carry = bytes[j] >> 8; bytes[j] &= 0xff;
+    }
+    while (carry){ bytes.push(carry & 0xff); carry >>= 8; }
+  }
+  for (i = 0; i < s.length && s.charAt(i) === '1'; i++) bytes.push(0);
+  return bytes.reverse();
+}
+
+function sha256(bytes){
+  var c = window.crypto || window.msCrypto;
+  if (!c || !c.subtle || !c.subtle.digest) return null;
+  try { return c.subtle.digest('SHA-256', new Uint8Array(bytes)); } catch(e){ return null; }
+}
+
+/* Без WebCrypto проверить нечем — тогда не выдумываем ошибку, а доверяем форме
+   адреса: лучше пропустить опечатку, чем завернуть верный адрес. */
+function checksumOk(raw){
+  var p = sha256(raw.slice(0, 21));
+  if (!p) return Promise.resolve(true);
+  return p.then(function(h1){
+    var q = sha256(new Uint8Array(h1));
+    return q || Promise.reject(new Error('no crypto'));
+  }).then(function(h2){
+    var b = new Uint8Array(h2);
+    for (var i = 0; i < 4; i++) if (b[i] !== raw[21 + i]) return false;
+    return true;
+  }).catch(function(){ return true; });
+}
+
+function classify(v, strict){
+  var t = T();
+  if (!v) return {state: 'empty', msg: t.aHint};
+  if (v.charAt(0) !== 'T') return {state: 'bad', msg: t.aPrefix};
+  for (var i = 0; i < v.length; i++){
+    if (B58.indexOf(v.charAt(i)) < 0)
+      return {state: 'bad', msg: t.aChar.replace('%s', v.charAt(i))};
+  }
+  if (v.length !== 34){
+    // Пока человек печатает, недобранная длина — не ошибка, а процесс.
+    if (v.length < 34 && !strict) return {state: 'typing', msg: t.aTyping};
+    return {state: 'bad', msg: t.aLen.replace('%s', String(v.length))};
+  }
+  var raw = b58(v);
+  if (!raw || raw.length !== 25 || raw[0] !== 0x41) return {state: 'bad', msg: t.aSum};
+  return {state: 'checking', msg: '', raw: raw};
+}
+
+var lastAddrVal = null;
+
+function onAddrInput(strict){
+  var el = $('addr');
+  var v = (el.value || '').trim();
+  // То же значение — та же проверка, и перерисовывать нечего. Без этого blur
+  // от самого нажатия «копировать» гонит адрес по кругу «проверяем → в
+  // порядке», карточка перестраивается и первое нажатие пропадает.
+  // Исключение — недописанный адрес: уход из поля обязан превратить
+  // «дописывайте» в честную ошибку.
+  if (v === lastAddrVal && !(strict && addrState === 'typing')) return;
+  lastAddrVal = v;
+  addr = v;
+  var r = classify(v, strict);
+  var mine = ++seq;
+  addrState = r.state;
+  addrMsg = r.msg;
+  if (r.state === 'checking'){
+    checksumOk(r.raw).then(function(ok){
+      if (mine !== seq) return;                 // пришёл ответ на старый ввод
+      addrState = ok ? 'ok' : 'bad';
+      addrMsg = ok ? T().aOk : T().aSum;
+      paintPay();
+    });
+  }
+  paintPay();
+}
+
+/* --- копирование ---------------------------------------------------------
+   clipboard.writeText работает внутри Telegram (страница по https), но старые
+   вебвью его не знают — там остаётся textarea + execCommand. Молча не
+   срабатывать нельзя: человек уверен, что скопировал адрес. */
+function copy(text, row){
+  // Что именно скопировали, но никогда — что там написано: memo это адрес
+  // покупателя, и ему в аналитике не место.
+  var rules = payRules() || {};
+  ev('copy_pay_detail', {where: 'app',
+    what: text === rules.address ? 'our_address' : (text === addr && addr ? 'memo' : 'amount')});
+  function done(ok){
+    if (!ok) return;
+    row.classList.add('copied');
+    var cp = row.querySelector('.cp');
+    if (cp) cp.textContent = T().coCopied;
+    try { if (tg && tg.HapticFeedback) tg.HapticFeedback.notificationOccurred('success'); } catch(e){}
+    setTimeout(function(){
+      row.classList.remove('copied');
+      if (cp) cp.textContent = T().coCopy;
+    }, 1600);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){ done(true); }, function(){ done(fallback(text)); });
+    return;
+  }
+  done(fallback(text));
+}
+function fallback(text){
+  try {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    var ok = document.execCommand('copy');
+    document.body.removeChild(ta);
+    return ok;
+  } catch(e){ return false; }
+}
+
+/* --- что можно оплатить прямо здесь --------------------------------------
+   Решают правила из price.json, а не наши представления о них: какие валюты
+   принимаются на цепочке (`tokens`) и какие несут memo (`memo_tokens`). */
+function payability(){
+  var t = T(), rules = payRules();
+  if (!rules || !rules.address) return {ok: false, why: t.coBotOnly};
+  if (cur === 'XTR') return {ok: false, why: t.coStarsOnly};
+  var tokens = rules.tokens || [];
+  if (tokens.indexOf(cur) < 0) return {ok: false, why: t.coBotOnly};
+  var sending = addrState === 'ok';
+  var memoTokens = rules.memo_tokens || [];
+  if (sending && (rules.memo !== true || memoTokens.indexOf(cur) < 0))
+    return {ok: false, why: t.coUsdtBot};
+  return {ok: true, memo: sending ? addr : ''};
+}
+
+/* --- отрисовка выбора ----------------------------------------------------- */
+function paint(){
+  var all = products();
+  if (!all.length) return;
+  if (vol === null || !item(vol)) vol = all[0].energy;
+  var it = item(vol), t = T();
+
+  document.documentElement.lang = lang;
+  $('term').textContent = t.term;
+  $('h1').textContent = t.h1;
+  $('volT').textContent = t.volT;
+  $('curT').textContent = t.curT;
+  $('addrT').textContent = t.addrT;
+  $('payT').textContent = t.payT;
+  $('note').textContent = t.note;
+  $('lang').textContent = lang === 'ru' ? 'EN' : 'RU';
+  $('addr').placeholder = t.aPlace;
+  $('back').textContent = t.back;
+
+  /* полосы: длина пропорциональна числам, а не нарисована на глаз */
+  var b = burn(it.energy), o = it.trx;
+  $('burnLab').textContent = t.burn;
+  $('oursLab').textContent = t.ours;
+  $('burnNum').textContent = fmt(b, 2) + ' TRX';
+  $('oursNum').textContent = fmt(o, 2) + ' TRX';
+  $('burnFill').style.width = '100%';
+  $('oursFill').style.width = Math.max(4, Math.round(o / b * 100)) + '%';
+  $('saveNum').textContent = fmt(b - o, 2) + ' TRX';
+  $('saveLab').textContent = t.save;
+  $('savePct').textContent = '−' + Math.round((1 - o / b) * 100) + '%';
+
+  /* объёмы */
+  var vols = $('vols');
+  vols.innerHTML = '';
+  all.forEach(function(p){
+    var el = document.createElement('div');
+    el.className = 'vol';
+    el.setAttribute('role', 'radio');
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('aria-checked', p.energy === vol ? 'true' : 'false');
+    el.innerHTML = '<span><span class="e">' + eLong(p.energy) + '</span>' +
+                   '<span class="s">' + esc(t.sub[String(p.energy)] || t.subAny) + '</span></span>' +
+                   '<span class="p">' + esc(amountOr(p, cur)) + '</span>';
+    el.addEventListener('click', function(){
+      vol = p.energy; ev('select_size', {size: eShort(p.energy), where: 'app'}); tap(); paint(); });
+    el.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); vol = p.energy; tap(); paint(); } });
+    vols.appendChild(el);
+  });
+
+  /* валюты: показываем только те, что у этого объёма реально есть */
+  var curs = $('curs');
+  curs.innerHTML = '';
+  var list = [['USDT', 'USDT'], ['TRX', 'TRX']];
+  if (it.stars) list.push(['XTR', t.stars]);
+  list.forEach(function(pair){
+    if (!amount(it, pair[0])) return;
+    var el = document.createElement('div');
+    el.className = 'cur' + (pair[0] === 'XTR' ? ' stars' : '');
+    el.setAttribute('role', 'radio');
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('aria-checked', pair[0] === cur ? 'true' : 'false');
+    el.textContent = pair[1];
+    el.addEventListener('click', function(){
+      cur = pair[0]; ev('select_currency', {currency: cur, where: 'app'}); tap(); paint(); paintPay(); });
+    el.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); cur = pair[0]; tap(); paint(); paintPay(); } });
+    curs.appendChild(el);
+  });
+  if (!amount(it, cur)) cur = 'TRX';
+
+  /* рынок: обе цифры из price.json, без единого числа руками */
+  var x = extra(it.energy), mk = $('market');
+  if (x && num(Number(x.market_median)) && num(Number(x.dearer_count)) && Number(x.dearer_count) > 0) {
+    var n = Number(x.dearer_count);
+    mk.innerHTML = t.market.replace('{m}', fmt(Number(x.market_median), 2))
+                           .replace('{n}', n + ' ' + plural(n, t.plat)) +
+                   ' <a id="board" href="' + BOARD + '">' + t.board + '</a>';
+    var a = $('board');
+    if (a) a.addEventListener('click', function(e){
+      e.preventDefault();
+      if (inTelegram && tg.openLink) tg.openLink(BOARD); else window.open(BOARD, '_blank');
+    });
+    mk.hidden = false;
+  } else { mk.hidden = true; }
+
+  /* когда цены сняты — коротко, чтобы было видно, что они живые */
+  var when = price && (price.updated || price.generated_at);
+  if (when) {
+    var d = new Date(when);
+    $('when').textContent = isNaN(d.getTime()) ? '' :
+      t.when.replace('{t}', d.toLocaleTimeString(lang === 'ru' ? 'ru-RU' : 'en-GB',
+                                                 {hour: '2-digit', minute: '2-digit'}));
+  }
+
+  $('load').hidden = true;
+  $('card').hidden = false;
+  paintPay();
+}
+
+/* --- отрисовка оплаты ----------------------------------------------------- */
+function row(key, sub, value, opts){
+  opts = opts || {};
+  var el = document.createElement('div');
+  el.className = 'prow' + (opts.mono ? ' wide' : '') + (opts.cls ? ' ' + opts.cls : '');
+  var k = document.createElement('span');
+  k.className = 'k';
+  k.textContent = key;
+  var v = document.createElement('span');
+  v.className = 'v';
+  v.textContent = value;                       // никакого innerHTML: здесь адрес человека
+  var parts = [k, v];
+  if (sub){
+    var sb = document.createElement('span');
+    sb.className = 'sub';
+    sb.textContent = sub;
+    parts.push(sb);
+  }
+  if (opts.copy){
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    var cp = document.createElement('span');
+    cp.className = 'cp';
+    cp.textContent = T().coCopy;
+    parts.push(cp);                            // у широких строк ячейки названы,
+    parts.forEach(function(n){ btn.appendChild(n); });   // у коротких важен порядок
+    // кнопка внутри строки занимает её целиком, поэтому сетка переезжает на неё
+    el.appendChild(btn);
+    btn.addEventListener('click', function(){ copy(opts.copy, el); });
+  } else {
+    parts.forEach(function(n){ el.appendChild(n); });
+  }
+  return el;
+}
+
+function paintPay(){
+  var t = T(), it = item(vol);
+  if (!it) return;
+  $('step1').hidden = step !== 1;
+  $('step2').hidden = step !== 2;
+  // На оплате доводы уже отработали: там нужны сумма и адрес, а не полосы.
+  $('hero').hidden = step !== 1;
+  $('recap').hidden = step !== 2;
+  if (step === 2){
+    $('rcVol').textContent = eLong(it.energy);
+    $('rcTerm').textContent = t.term;
+    $('rcPrice').textContent = amountOr(it, cur);
+  }
+  $('market').hidden = step !== 1 || !$('market').textContent;
+  if (step !== 2) { mainButton(); return; }
+
+  // Бот умеет читать адрес из memo — но если однажды перестанет, поле должно
+  // погаснуть само, а не обещать невыполнимое.
+  var rules = payRules();
+  var memoOk = !!(rules && rules.memo === true);
+  var field = $('addr');
+  field.disabled = !memoOk;
+  if (!memoOk && addr){ field.value = ''; addr = ''; addrState = 'empty'; addrMsg = t.bNoMemo; }
+  if (!memoOk && !addrMsg) addrMsg = t.bNoMemo;
+
+  var msg = $('amsg');
+  msg.textContent = addrMsg || t.aHint;
+  msg.className = 'amsg' + (addrState === 'ok' ? ' ok' : (addrState === 'bad' ? ' bad' : ''));
+
+  var host = $('payout');
+  var can = payability();
+  // Перерисовываем, только когда что-то действительно изменилось. Иначе blur от
+  // самого нажатия «копировать» сносит кнопку, по которой человек уже попал, и
+  // первое нажатие пропадает. Тот же приём и по той же причине — в theme.py.
+  var rules0 = payRules() || {};
+  var key = [cur, vol, addrState, addr, can.ok ? '1' : '0', can.why || '',
+             can.memo || '', rules0.address || '',
+             it.trx, it.usdt, lang].join('|');
+  if (host.getAttribute('data-key') === key) return;
+  host.setAttribute('data-key', key);
+  host.innerHTML = '';
+  if (!can.ok){
+    var p = document.createElement('p');
+    p.className = 'pnote';
+    p.textContent = can.why;
+    host.appendChild(p);
+    mainButton();
+    return;
+  }
+
+  var raw = cur === 'USDT' ? fmt(it.usdt, 2) : fmt(it.trx, 2);
+  var card = document.createElement('div');
+  card.className = 'pay';
+  card.appendChild(row(t.coSend, '', raw + ' ' + cur, {copy: raw}));
+  card.appendChild(row(t.coTo, '', payRules().address, {copy: payRules().address, mono: true}));
+  if (can.memo){
+    card.appendChild(row(t.bMemo, t.bMemoSub, can.memo, {copy: can.memo, mono: true, cls: 'memo'}));
+  } else {
+    card.appendChild(row(t.bDest, '', t.bDestSelf, {cls: 'dim'}));
+  }
+  card.appendChild(row(t.coGet, '', eLong(it.energy) + ' ' + t.coEnergy, {cls: 'dim'}));
+  host.appendChild(card);
+
+  if (can.memo){
+    var w = document.createElement('p');
+    w.className = 'pwarn';
+    w.textContent = t.bMemoWarn;
+    host.appendChild(w);
+  }
+  var n = document.createElement('p');
+  n.className = 'pnote';
+  n.textContent = t.coWatch;
+  host.appendChild(n);
+  // Реквизиты действительно на экране — это и есть начало оплаты. Один раз на
+  // открытие: paintPay зовут на каждое изменение, и считать каждую
+  // перерисовку за новое начало оплаты значило бы завышать.
+  if (!evOnce.checkout){
+    evOnce.checkout = true;
+    ev('begin_checkout', {currency: cur, size: eShort(it.energy), where: 'app',
+                          value: Number(cur === 'USDT' ? it.usdt : it.trx)});
+  }
+  mainButton();
+}
+
+/* Нативная кнопка внизу говорит про следующий шаг, а не про страницу вообще:
+   на выборе это «получить», на оплате — только уход в бота и только тогда,
+   когда здесь заплатить нельзя. Когда платить можно прямо тут, нижняя кнопка
+   гаснет: нажимать нечего, надо копировать и переводить. */
+function mainButton(){
+  var t = T(), it = item(vol);
+  var label, act;
+  if (step === 1){
+    label = t.cta.replace('{e}', eShort(it ? it.energy : 0)).replace('{a}', amountOr(it, cur));
+    act = 'next';
+  } else if (!payability().ok){
+    label = t.ctaBot;
+    act = 'bot';
+  } else {
+    label = '';
+    act = '';
+  }
+  window.__act = act;
+  var own = $('own');
+  if (inTelegram && tg.MainButton && tg.MainButton.setParams){
+    try {
+      var st = getComputedStyle(document.documentElement);
+      if (!label) { tg.MainButton.hide(); }
+      else {
+        tg.MainButton.setParams({
+          text: label,
+          color: st.getPropertyValue('--btn-1').trim(),
+          text_color: st.getPropertyValue('--accent-ink').trim(),
+          is_active: true, is_visible: true
+        });
+      }
+    } catch(e){}
+    if (own) own.style.display = 'none';
+  } else if (own){
+    own.style.display = label ? 'block' : 'none';
+    own.querySelector('button').textContent = label;
+    document.querySelector('.wrap').classList.toggle('has-own-cta', !!label);
+  }
+  try {
+    if (inTelegram && tg.BackButton){
+      if (step === 2) tg.BackButton.show(); else tg.BackButton.hide();
+    }
+  } catch(e){}
+  $('back').hidden = step !== 2 || inTelegram;
+}
+
+function tap(){ try { if (tg && tg.HapticFeedback) tg.HapticFeedback.selectionChanged(); } catch(e){} }
+
+function act(){
+  if (window.__act === 'next' && cur === 'XTR'){
+    // Звёзды принимает телеграм, а не мы: шага «куда отправить» у них нет и
+    // платить здесь нечем. Ведём сразу в бота, выбор едет диплинком.
+    openBot();
+    return;
+  }
+  if (window.__act === 'next'){
+    step = 2;
+    tap();
+    paintPay();
+    window.scrollTo(0, 0);
+    return;
+  }
+  if (window.__act === 'bot') openBot();
+}
+
+function goBack(){
+  step = 1;
+  paintPay();
+  window.scrollTo(0, 0);
+}
+
+/* Уход в бота. Параметр `start` — «объём + валюта», ровно то, что помещается в
+   64 знака. Адрес бот спросит сам, и в этих двух случаях (звёзды, USDT на
+   чужой кошелёк) он обязан спросить: здесь его передать нечем. */
+function openBot(){
+  var it = item(vol);
+  // Почему ушли: у звёзд и у USDT на чужой адрес причина своя, и разделять их
+  // стоит — это разные дыры в воронке.
+  ev('go_to_bot', {where: 'app', reason:
+    cur === 'XTR' ? 'stars' : (step === 2 && !payability().ok ? 'usdt_memo' : 'button')});
+  var url = BOT;
+  if (it){
+    var token = amount(it, cur) ? cur : 'TRX';
+    /* Хвост _app — источник: по нему потом видно, витрина продала или
+       страницы сайта. Бот принимает ссылку и без хвоста, старые не сломаны. */
+    url = BOT + '?start=v' + it.energy + '_' + token.toLowerCase() + '_app';
+  }
+  try { if (tg && tg.HapticFeedback) tg.HapticFeedback.impactOccurred('medium'); } catch(e){}
+  if (inTelegram && tg.openTelegramLink) {
+    tg.openTelegramLink(url);
+    setTimeout(function(){ try { tg.close(); } catch(e){} }, 120);
+  } else {
+    window.location.href = url;
+  }
+}
+
+function fail(){
+  var t = T();
+  $('load').hidden = true;
+  $('card').hidden = true;
+  var e = $('err');
+  e.innerHTML = '<b>' + esc(t.errH) + '</b><br>' + t.errB.replace('{bot}', BOT);
+  e.hidden = false;
+  var a = $('errlink');
+  if (a) a.addEventListener('click', function(ev){
+    ev.preventDefault();
+    if (inTelegram && tg.openTelegramLink) tg.openTelegramLink(BOT); else window.location.href = BOT;
+  });
+  try { if (inTelegram && tg.MainButton) tg.MainButton.hide(); } catch(e2){}
+  var own = $('own');
+  if (own) own.style.display = 'none';
+}
+
+/* --- запуск -------------------------------------------------------------- */
+try { if (tg) { tg.ready(); tg.expand(); } } catch(e){}
+applyTheme();
+try { if (tg && tg.onEvent) tg.onEvent('themeChanged', function(){ applyTheme(); paint(); }); } catch(e){}
+
+if (inTelegram && tg.MainButton && tg.MainButton.onClick) tg.MainButton.onClick(act);
+if (inTelegram && tg.BackButton && tg.BackButton.onClick) tg.BackButton.onClick(goBack);
+$('own').querySelector('button').addEventListener('click', act);
+$('back').addEventListener('click', goBack);
+$('addr').addEventListener('input', function(){ onAddrInput(false); });
+$('addr').addEventListener('blur', function(){ onAddrInput(true); });
+
+$('lang').addEventListener('click', function(){
+  lang = lang === 'ru' ? 'en' : 'ru';
+  try { localStorage.setItem('tf-app-lang', lang); } catch(e){}
+  paint();
+});
+$('load').textContent = T().load;
+
+fetch('price.json?t=' + Date.now(), {cache: 'no-store'})
+  .then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(function(j){
+    price = j;
+    if (num(Number(j.energy_fee_sun)) && Number(j.energy_fee_sun) > 0) burnSun = Number(j.energy_fee_sun);
+    if (!products().length) throw new Error('no products');
+    paint();
+  })
+  .catch(fail);
+})();
+
+</script>
+</body>
+</html>
