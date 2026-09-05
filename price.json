@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-11-07T11:14:16+00:00",
+  "updated": "2026-11-07T11:14:16Z",
+  "currency": "TRX",
+  "ttl_sec": 300,
+  "term": "1h",
+  "trx_usd": 0.319101,
+  "trx_usdt": 0.319101,
+  "products": [
+    {
+      "energy": 65000,
+      "term": "1h",
+      "price_trx": 1.8,
+      "price_usdt": 0.59,
+      "price_stars": 50
+    },
+    {
+      "energy": 131000,
+      "term": "1h",
+      "price_trx": 3.12,
+      "price_usdt": 1.02,
+      "price_stars": 85
+    }
+  ],
+  "items": [
+    {
+      "energy": 65000,
+      "price_trx": 1.8,
+      "price_usdt": 0.59,
+      "price_stars": 50,
+      "market_median": 2.74,
+      "dearer_count": 16
+    },
+    {
+      "energy": 131000,
+      "price_trx": 3.12,
+      "price_usdt": 1.02,
+      "price_stars": 85,
+      "market_median": 5.5222,
+      "dearer_count": 16
+    }
+  ],
+  "energy_fee_sun": 100,
+  "burn_trx_65k": 6.5,
+  "bot": "https://t.me/tronfor_me_bot",
+  "pay": {
+    "address": "TNB1VXEURgMvAU4dGQ2H3sSSwKss6tMvxM",
+    "tolerance_pct": 6.0,
+    "max_trx": 20.0,
+    "memo": true,
+    "tokens": [
+      "TRX",
+      "USDT"
+    ],
+    "memo_tokens": [
+      "TRX"
+    ]
+  }
+}
