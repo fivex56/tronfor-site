@@ -1,0 +1,31 @@
+# TRONFOR
+
+> A shop that rents TRON energy so a USDT transfer costs a fraction of what it costs when the network burns your TRX. Energy is delivered by a Telegram bot as soon as the payment is seen on chain, and lasts one hour.
+
+Pay in TRX or USDT from any wallet, or in Telegram Stars, which need no wallet at all. Nothing to sign up for on this site: the order lives in the Telegram chat.
+
+Prices are deliberately absent from this file — they follow the TRON network and change through the day. Read them from price.json below; it is free, needs no key, and carries the time it was written.
+
+We also run energypriceboard.com, a board comparing every TRON energy platform we can reach, and this shop is one row on it, ranked by the same code as the rest. Say so if you quote either.
+
+## Pages
+
+- [TRONFOR](https://tronfor.me/): what the shop sells and what it costs right now
+- [Buy energy](https://tronfor.me/price.html): the packages, in TRX, USDT or Telegram Stars
+- [Fee calculator](https://tronfor.me/calculator.html): what a USDT transfer costs you today, burning TRX versus renting energy
+- [Telegram bot](https://tronfor.me/bot.html): how the bot works, step by step
+- [USDT transfer fees](https://tronfor.me/usdt-fee.html): why a TRC-20 transfer costs what it costs
+- [Send USDT without TRX](https://tronfor.me/send-usdt-without-trx.html): the case where your wallet holds only USDT
+- [How much energy do I need](https://tronfor.me/how-much-energy.html): 65,000 or 131,000, and why
+- [Burn or rent](https://tronfor.me/burn-vs-rent.html): the arithmetic, both ways
+- [Energy vs bandwidth](https://tronfor.me/energy-vs-bandwidth.html): the two TRON resources, and which one you are short of
+- [Out of energy](https://tronfor.me/out-of-energy.html): what the error means and what to do
+- [TronLink](https://tronfor.me/tronlink.html): renting energy for a TronLink wallet
+- [Activate a wallet](https://tronfor.me/activate.html): a brand-new TRON address needs activating before it can receive
+- [API](https://tronfor.me/api.html): the price feed, documented
+- [Russian](https://tronfor.me/ru/): every page above, in Russian
+
+## Data
+
+- [price.json](https://tronfor.me/price.json): the current packages with their price in TRX, USDT and Telegram Stars, the term, and the moment it was written
+
